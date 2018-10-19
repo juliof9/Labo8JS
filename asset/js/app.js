@@ -76,7 +76,7 @@ const mostrar = ()=>{
 var validacion = (formulario) =>{
 	var x = true;
 	for(let i = 1;i<formulario.length;i++){
-		if (formulario[i] == "" || formulario[i] == null){
+		if (formulario[i].value == "" || formulario[i].value == null){
 			formulario[i].style.borderColor = "red";
 			x = false;
 		}else{
