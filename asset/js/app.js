@@ -80,7 +80,7 @@ var validacion = (formulario) =>{
 			formulario[i].style.borderColor = "red";
 			x = false;
 		}else{
-			formulario[i].style.borderColor == "green";
+			formulario[i].style.borderColor = "green";
 		}
 	}
 	return x;
