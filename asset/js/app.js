@@ -32,7 +32,7 @@ var formulario  = document.getElementById("bitacora");
 
 formulario.addEventListener("submit", (evt) => {
 	evt.preventDefault();
-	if(validacion){
+	if(validacion(formulario)){
 	   	let bitacora = {
 	   	cant:cont,
 	   	fecha: formulario[1].value,
@@ -77,9 +77,10 @@ var validacion = (formulario) =>{
 	var x = true;
 	for(let i = 1;i<formulario.length;i++){
 		if (formulario[i] == "" || formulario[i] == null){
-			formulario.style.borderColor = "red";
+			formulario[i].style.borderColor = "red";
+			x = false;
 		}else{
-			formulario.style.borderColor == "green";
+			formulario[i].style.borderColor == "green";
 		}
 	}
 	return x;
