@@ -32,15 +32,17 @@ var formulario  = document.getElementById("bitacora");
 
 formulario.addEventListener("submit", (evt) => {
 	evt.preventDefault();
-   	let bitacora = {
-   	cant:cont,
-   	fecha: formulario[1].value,
-   	descripcion: formulario[2].value,
-   	cantidad: formulario[3].value
- 	}
-   	bitacoras.push(bitacora);
-   	cont++;
-   	mostrar();
+	if(validacion){
+	   	let bitacora = {
+	   	cant:cont,
+	   	fecha: formulario[1].value,
+	   	descripcion: formulario[2].value,
+	   	cantidad: formulario[3].value
+	 	}
+	   	bitacoras.push(bitacora);
+	   	cont++;
+	   	mostrar();
+	}
 });
 
 const crearElemento = (bitacora, tbody) =>{
@@ -69,4 +71,16 @@ const mostrar = ()=>{
    	crearElemento(item, document.querySelector(".tabla-btc tbody"));
   	});
   	agregar();
+}
+
+var validacion = (formulario) =>{
+	var x = true;
+	for(let i = 1;i<formulario.length;i++){
+		if (formulario[i] == "" || formulario[i] == null){
+			formulario.style.borderColor = "red";
+		}else{
+			formulario.style.borderColor == "green";
+		}
+	}
+	return x;
 }
